@@ -7,16 +7,29 @@
 //
 
 #import "DateAppDelegate.h"
+#import "DateView.h"
+#import "Date.h"
 
 @implementation DateAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL) application: (UIApplication *) application didFinishLaunchingWithOptions: (NSDictionary *) launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+	UIScreen *screen = [UIScreen mainScreen];
+	CGRect applicationFrame = screen.applicationFrame;
+	CGRect bounds = screen.bounds;
+    
+    Date *today = [[Date alloc] initWithMonth:1 day:1 year:2013];
+	
+	view = [[DateView alloc] initWithFrame: applicationFrame];
+    view.dateString = today.description;
+    
+    
+	self.window = [[UIWindow alloc] initWithFrame: bounds];
+	
+	//self.window.backgroundColor = [UIColor whiteColor];
+	[self.window addSubview: view];
+	[self.window makeKeyAndVisible];
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

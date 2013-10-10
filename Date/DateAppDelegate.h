@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateView.h"
 
-@interface DateAppDelegate : UIResponder <UIApplicationDelegate>
+@interface DateAppDelegate : UIResponder <UIApplicationDelegate> {
+    DateView *view;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
